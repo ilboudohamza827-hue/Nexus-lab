@@ -67,7 +67,7 @@ export function HomePage() {
           backgroundSize: '40px 40px',
         }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative">
-          <div className="hidden lg:block absolute right-8 xl:right-20 top-1/2 -translate-y-1/2 w-44 h-64 opacity-20 pointer-events-none">
+          <div className="absolute right-1/2 translate-x-1/2 lg:right-[-72px] lg:translate-x-0 top-1/2 -translate-y-1/2 w-[min(86vw,420px)] lg:w-[520px] h-[620px] lg:h-[760px] opacity-[0.08] lg:opacity-[0.16] pointer-events-none select-none">
             <img src="/NEXUS.jpeg" alt="" className="w-full h-full object-contain" />
           </div>
           <div className="text-center max-w-3xl mx-auto">
