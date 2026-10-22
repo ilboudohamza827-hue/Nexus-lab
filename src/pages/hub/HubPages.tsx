@@ -142,7 +142,7 @@ export function HubHomePage() {
                     <Users className="w-6 h-6 text-[#FFD400]" />
                   </div>
                   <h3 className="font-bold text-sm text-[#080808] line-clamp-1 mb-1">{club.name}</h3>
-                  {club.category && <p className="text-xs text-gray-400 mb-2">{club.category.name}</p>}
+                  {club.category && <p className="text-xs text-gray-500 mb-2">{club.category.name}</p>}
                   {club.description && <p className="text-xs text-gray-500 line-clamp-2">{club.description}</p>}
                 </Link>
               ))}
@@ -187,8 +187,8 @@ export function HubHomePage() {
           </div>
           {galleryItems.length === 0 ? (
             <div className="text-center py-10">
-              <ImageIcon className="w-12 h-12 text-gray-600 mx-auto mb-3" />
-              <p className="text-sm text-gray-400">Les réalisations seront publiées prochainement.</p>
+              <ImageIcon className="w-12 h-12 text-gray-500 mx-auto mb-3" />
+              <p className="text-sm text-gray-500">Les réalisations seront publiées prochainement.</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -198,7 +198,7 @@ export function HubHomePage() {
                     <img src={item.image_url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <ImageIcon className="w-8 h-8 text-gray-600" />
+                      <ImageIcon className="w-8 h-8 text-gray-500" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
@@ -262,7 +262,7 @@ export function HubActivitiesPage() {
     <HubPageWrapper title="Activités et événements" subtitle="Ateliers, sorties, rencontres, challenges et plus encore.">
       <div className="mb-6 flex flex-col sm:flex-row gap-3">
         <div className="flex-1 flex items-center gap-2 bg-white rounded-xl border border-gray-200 px-4 py-2.5">
-          <Search className="w-5 h-5 text-gray-400" />
+          <Search className="w-5 h-5 text-gray-500" />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher une activité..." className="flex-1 outline-none text-sm" />
         </div>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none">
@@ -338,7 +338,7 @@ export function HubClubsPage() {
     <HubPageWrapper title="Clubs et communautés" subtitle="Rejoins des groupes organisés autour de tes centres d'intérêt.">
       <div className="mb-6 flex flex-col sm:flex-row gap-3">
         <div className="flex-1 flex items-center gap-2 bg-white rounded-xl border border-gray-200 px-4 py-2.5">
-          <Search className="w-5 h-5 text-gray-400" />
+          <Search className="w-5 h-5 text-gray-500" />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher un club..." className="flex-1 outline-none text-sm" />
         </div>
         <select value={catFilter} onChange={(e) => setCatFilter(e.target.value)} className="bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none">
@@ -358,12 +358,12 @@ export function HubClubsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-[#080808] line-clamp-1">{club.name}</h3>
-                  {club.category && <p className="text-xs text-gray-400">{club.category.name}</p>}
+                  {club.category && <p className="text-xs text-gray-500">{club.category.name}</p>}
                 </div>
               </div>
               {club.description && <p className="text-sm text-gray-500 line-clamp-2 mb-3">{club.description}</p>}
               {club.skills_developed && (
-                <p className="text-xs text-gray-400 flex items-center gap-1">
+                <p className="text-xs text-gray-500 flex items-center gap-1">
                   <Zap className="w-3 h-3 text-[#FFD400]" /> {club.skills_developed}
                 </p>
               )}
@@ -433,7 +433,7 @@ export function HubProjectsPage() {
     <HubPageWrapper title="Projets collaboratifs" subtitle="Passe de l'idée à l'action. Rejoins une équipe ou propose ton projet.">
       <div className="mb-6 flex flex-col sm:flex-row gap-3">
         <div className="flex-1 flex items-center gap-2 bg-white rounded-xl border border-gray-200 px-4 py-2.5">
-          <Search className="w-5 h-5 text-gray-400" />
+          <Search className="w-5 h-5 text-gray-500" />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher un projet..." className="flex-1 outline-none text-sm" />
         </div>
         <select value={statusFilter} onChange={(e) => { setStatusFilter(e.target.value); }} className="bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none">
@@ -460,7 +460,7 @@ export function HubProjectsPage() {
             <div><label className="block text-xs font-semibold text-gray-700 mb-1.5">Compétences recherchées (virgules)</label><input value={form.skills_needed} onChange={(e) => setForm({ ...form, skills_needed: e.target.value })} className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none focus:border-[#FFD400]" placeholder="Design, Programmation, ..." /></div>
             <div><label className="block text-xs font-semibold text-gray-700 mb-1.5">Rôles disponibles (virgules)</label><input value={form.roles_available} onChange={(e) => setForm({ ...form, roles_available: e.target.value })} className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none focus:border-[#FFD400]" placeholder="Développeur, Designer, ..." /></div>
           </div>
-          <p className="text-xs text-gray-400">Ton projet sera soumis à validation avant publication publique.</p>
+          <p className="text-xs text-gray-500">Ton projet sera soumis à validation avant publication publique.</p>
           <button onClick={submitProject} disabled={saving || !form.name.trim()} className="px-5 py-2.5 bg-[#080808] text-white font-bold text-sm rounded-xl hover:bg-[#121212] disabled:opacity-50">
             {saving ? 'Envoi...' : 'Soumettre le projet'}
           </button>
@@ -545,9 +545,9 @@ export function HubGalleryPage() {
                 <h3 className="font-bold text-[#080808] mb-1">{item.title}</h3>
                 {item.description && <p className="text-sm text-gray-500 line-clamp-2 mb-2">{item.description}</p>}
                 {item.contributor_names.length > 0 && (
-                  <p className="text-xs text-gray-400">Par: {item.contributor_names.join(', ')}</p>
+                  <p className="text-xs text-gray-500">Par: {item.contributor_names.join(', ')}</p>
                 )}
-                <p className="text-xs text-gray-400 mt-1">{formatDate(item.created_at)}</p>
+                <p className="text-xs text-gray-500 mt-1">{formatDate(item.created_at)}</p>
               </div>
             </div>
           ))}
@@ -569,7 +569,7 @@ function HubTile({ to, icon: Icon, label, desc }: { to: string; icon: typeof Use
       </div>
       <div>
         <p className="font-bold text-sm text-[#080808]">{label}</p>
-        <p className="text-xs text-gray-400">{desc}</p>
+        <p className="text-xs text-gray-500">{desc}</p>
       </div>
     </Link>
   );
@@ -600,12 +600,12 @@ function HubPageWrapper({ title, subtitle, children }: { title: string; subtitle
       <div className="bg-[#080808] text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm mb-2">
-            <Link to="/hub" className="text-gray-400 hover:text-[#FFD400]">Hub</Link>
-            <span className="text-gray-600">/</span>
+            <Link to="/hub" className="text-gray-500 hover:text-[#FFD400]">Hub</Link>
+            <span className="text-gray-500">/</span>
             <span className="text-white">{title}</span>
           </div>
           <h1 className="text-2xl md:text-3xl font-bold mb-1">{title}</h1>
-          <p className="text-gray-400 text-sm">{subtitle}</p>
+          <p className="text-gray-500 text-sm">{subtitle}</p>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

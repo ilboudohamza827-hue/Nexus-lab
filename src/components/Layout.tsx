@@ -116,7 +116,7 @@ export function Header() {
                           <Link
                             to="/admin"
                             onClick={() => setUserMenuOpen(false)}
-                            className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 border-t border-gray-100"
+                            className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 border-t border-gray-200"
                           >
                             <Shield className="w-4 h-4" /> Administration
                           </Link>
@@ -127,7 +127,7 @@ export function Header() {
                             signOut();
                             navigate('/');
                           }}
-                          className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 w-full text-left border-t border-gray-100"
+                          className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 w-full text-left border-t border-gray-200"
                         >
                           <LogOut className="w-4 h-4" /> Déconnexion
                         </button>
@@ -250,7 +250,7 @@ export function Footer() {
   const { isAdmin, isEditor } = useAuth();
 
   return (
-    <footer className="bg-[#080808] text-gray-400 mt-16">
+    <footer className="bg-[#080808] text-gray-500 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -262,7 +262,7 @@ export function Footer() {
                 Nexus<span className="text-[#FFD400]">Lab</span>
               </span>
             </div>
-            <p className="text-sm text-gray-400 max-w-md">
+            <p className="text-sm text-gray-500 max-w-md">
               Le potentiel est partout. Les opportunités doivent l'être aussi. NexusLab centralise
               les bourses, formations, concours et opportunités pour les élèves et étudiants du
               Burkina Faso et d'Afrique francophone.

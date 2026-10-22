@@ -39,7 +39,7 @@ export function VideosPage() {
           <h1 className="text-2xl md:text-3xl font-bold flex items-center gap-2 mb-2">
             <VideoIcon className="w-6 h-6 text-[#FFD400]" /> Bibliothèque vidéo
           </h1>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             Des ressources éducatives pour t'aider à préparer tes candidatures et développer tes compétences.
           </p>
         </div>
@@ -49,7 +49,7 @@ export function VideosPage() {
         {/* Search */}
         <div className="mb-6 flex gap-3">
           <div className="flex-1 flex items-center gap-2 bg-white rounded-xl border border-gray-200 px-4 py-2.5">
-            <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
+            <Search className="w-5 h-5 text-gray-500 flex-shrink-0" />
             <input
               type="text"
               value={search}
@@ -58,7 +58,7 @@ export function VideosPage() {
               className="flex-1 outline-none text-sm text-[#080808]"
             />
             {search && (
-              <button onClick={() => setSearch('')} className="text-gray-400 hover:text-gray-600">
+              <button onClick={() => setSearch('')} className="text-gray-500 hover:text-gray-500">
                 <X className="w-4 h-4" />
               </button>
             )}

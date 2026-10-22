@@ -92,7 +92,7 @@ export function PourToiPage() {
             Commencer le questionnaire <ArrowRight className="w-4 h-4" />
           </button>
           <div className="mt-4">
-            <Link to="/catalogue" className="text-sm text-gray-400 hover:text-[#080808]">
+            <Link to="/catalogue" className="text-sm text-gray-500 hover:text-[#080808]">
               ou explore le catalogue →
             </Link>
           </div>
@@ -134,7 +134,7 @@ export function PourToiPage() {
               Bonjour, <span className="text-[#FFD400]">{user.email?.split('@')[0]}</span>
             </h1>
           </div>
-          <p className="text-gray-400 text-sm mb-4">
+          <p className="text-gray-500 text-sm mb-4">
             Voici les opportunités sélectionnées pour toi selon ton profil.
           </p>
           {/* Profile summary */}
@@ -208,7 +208,7 @@ export function PourToiPage() {
                     <span className={`text-xs font-semibold ${deadlineColor(opp)}`}>{deadlineLabel(opp)}</span>
                   </div>
                   <h3 className="font-bold text-sm text-[#080808] line-clamp-2">{opp.title}</h3>
-                  {opp.category && <p className="text-xs text-gray-400 mt-1">{opp.category.name}</p>}
+                  {opp.category && <p className="text-xs text-gray-500 mt-1">{opp.category.name}</p>}
                 </Link>
               ))}
             </div>

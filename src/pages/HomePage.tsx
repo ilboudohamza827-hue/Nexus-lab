@@ -76,14 +76,14 @@ export function HomePage() {
               Le potentiel est partout.<br />
               Les opportunités doivent <span className="text-[#FFD400]">l'être aussi.</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
               Découvre les bourses, formations, concours et opportunités qui correspondent à ton parcours.
             </p>
 
             {/* Search bar */}
             <form onSubmit={handleSearch} className="max-w-xl mx-auto mb-8">
               <div className="flex items-center gap-2 bg-white rounded-xl p-1.5 shadow-2xl">
-                <Search className="w-5 h-5 text-gray-400 ml-3 flex-shrink-0" />
+                <Search className="w-5 h-5 text-gray-500 ml-3 flex-shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -134,8 +134,8 @@ export function HomePage() {
           <LoadingSpinner />
         ) : opportunities.length === 0 ? (
           <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-200">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <BookOpen className="w-8 h-8 text-gray-400" />
+            <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
+              <BookOpen className="w-8 h-8 text-gray-500" />
             </div>
             <h3 className="font-bold text-lg text-[#080808] mb-2">Aucune opportunité publiée pour le moment</h3>
             <p className="text-sm text-gray-500 max-w-md mx-auto">
@@ -218,7 +218,7 @@ export function HomePage() {
                 <Compass className="w-8 h-8 text-[#080808]" />
               </div>
               <h3 className="font-bold text-lg mb-2">1. Explore le catalogue</h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-500">
                 Parcours librement toutes les opportunités publiées. Recherche par mot-clé, filtre par
                 catégorie, niveau, domaine et pays.
               </p>
@@ -228,7 +228,7 @@ export function HomePage() {
                 <Target className="w-8 h-8 text-[#080808]" />
               </div>
               <h3 className="font-bold text-lg mb-2">2. Personnalise ton profil</h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-500">
                 Réponds au questionnaire pour recevoir des recommandations adaptées à ton niveau,
                 tes objectifs et tes domaines d'intérêt.
               </p>
@@ -238,7 +238,7 @@ export function HomePage() {
                 <ShieldCheck className="w-8 h-8 text-[#080808]" />
               </div>
               <h3 className="font-bold text-lg mb-2">3. Postule en confiance</h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-500">
                 Accède aux sources officielles et aux liens de candidature. Chaque annonce est
                 rattachée à une source vérifiable.
               </p>
@@ -266,7 +266,7 @@ export function HomePage() {
         ) : (
           <div className="bg-gray-50 rounded-xl border border-gray-200 p-8 text-center">
             <VideoIcon className="w-12 h-12 text-[#FFD400] mx-auto mb-3" />
-            <p className="text-sm text-gray-600 max-w-lg mx-auto">
+            <p className="text-sm text-gray-500 max-w-lg mx-auto">
               Des vidéos éducatives pour t'aider à préparer tes candidatures, rédiger ton CV,
               préparer un entretien et bien plus. Disponible prochainement.
             </p>

@@ -205,7 +205,7 @@ export const STATUS_COLORS: Record<OpportunityStatus, string> = {
   publiee: 'bg-green-100 text-green-800',
   verification_necessaire: 'bg-orange-100 text-orange-800',
   expiree: 'bg-red-100 text-red-700',
-  archivee: 'bg-gray-300 text-gray-600',
+  archivee: 'bg-gray-300 text-gray-500',
 };
 
 // ============================================================
@@ -381,7 +381,7 @@ export const ACTIVITY_STATUS_COLORS: Record<ActivityStatus, string> = {
   brouillon: 'bg-gray-200 text-gray-700',
   publie: 'bg-green-100 text-green-800',
   complet: 'bg-orange-100 text-orange-800',
-  termine: 'bg-gray-200 text-gray-600',
+  termine: 'bg-gray-200 text-gray-500',
   annule: 'bg-red-100 text-red-700',
 };
 
@@ -409,7 +409,7 @@ export const PROJECT_STATUS_COLORS: Record<ProjectStatus, string> = {
   en_cours: 'bg-green-100 text-green-800',
   test: 'bg-orange-100 text-orange-800',
   realise: 'bg-[#FFD400] text-[#080808]',
-  pause: 'bg-gray-200 text-gray-600',
+  pause: 'bg-gray-200 text-gray-500',
 };
 
 export const GALLERY_TYPE_LABELS: Record<GalleryItemType, string> = {

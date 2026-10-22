@@ -9,7 +9,7 @@ export function AboutPage() {
           <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
             À propos de <span className="text-[#FFD400]">NexusLab</span>
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-500 text-lg">
             Le potentiel est partout. Les opportunités doivent l'être aussi.
           </p>
         </div>
@@ -96,7 +96,7 @@ export function ContactPage() {
       <div className="bg-[#080808] text-white py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-extrabold mb-3">Contact</h1>
-          <p className="text-gray-400">Une question, une suggestion ou une demande ? Écris-nous.</p>
+          <p className="text-gray-500">Une question, une suggestion ou une demande ? Écris-nous.</p>
         </div>
       </div>
 
@@ -111,7 +111,7 @@ export function ContactPage() {
             ou suppression de données, tu peux nous écrire à :
           </p>
           <p className="font-bold text-[#080808]">contact@nexuslab.bf</p>
-          <p className="text-xs text-gray-400 mt-4">
+          <p className="text-xs text-gray-500 mt-4">
             NexusLab est un projet éducatif à vocation non lucrative, basé au Burkina Faso.
           </p>
         </div>
@@ -236,7 +236,7 @@ export function NotFoundPage() {
           <Search className="w-10 h-10 text-[#080808]" />
         </div>
         <h1 className="text-4xl font-extrabold text-white mb-2">404</h1>
-        <p className="text-gray-400 mb-6">Cette page n'existe pas.</p>
+        <p className="text-gray-500 mb-6">Cette page n'existe pas.</p>
         <Link to="/" className="px-6 py-3 bg-[#FFD400] text-[#080808] font-bold rounded-xl hover:bg-yellow-300 transition-colors">
           Retour à l'accueil
         </Link>

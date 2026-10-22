@@ -108,7 +108,7 @@ function AdminLink({ to, icon: Icon, label, desc }: { to: string; icon: typeof S
       </div>
       <div>
         <p className="font-bold text-[#080808]">{label}</p>
-        <p className="text-xs text-gray-400">{desc}</p>
+        <p className="text-xs text-gray-500">{desc}</p>
       </div>
     </Link>
   );
@@ -151,7 +151,7 @@ export function AdminOpportunitiesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <div className="flex-1 flex items-center gap-2 bg-white rounded-xl border border-gray-200 px-4 py-2.5">
-            <Search className="w-5 h-5 text-gray-400" />
+            <Search className="w-5 h-5 text-gray-500" />
             <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher..." className="flex-1 outline-none text-sm" />
           </div>
           <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none">
@@ -184,10 +184,10 @@ export function AdminOpportunitiesPage() {
                   <tr key={opp.id} className="hover:bg-gray-50">
                     <td className="px-4 py-3">
                       <p className="font-medium text-[#080808] line-clamp-1">{opp.title}</p>
-                      {opp.organization && <p className="text-xs text-gray-400">{opp.organization}</p>}
+                      {opp.organization && <p className="text-xs text-gray-500">{opp.organization}</p>}
                     </td>
-                    <td className="px-4 py-3 hidden md:table-cell text-gray-600">{opp.category?.name ?? '—'}</td>
-                    <td className="px-4 py-3 hidden lg:table-cell text-gray-600">{opp.deadline ? formatDate(opp.deadline) : '—'}</td>
+                    <td className="px-4 py-3 hidden md:table-cell text-gray-500">{opp.category?.name ?? '—'}</td>
+                    <td className="px-4 py-3 hidden lg:table-cell text-gray-500">{opp.deadline ? formatDate(opp.deadline) : '—'}</td>
                     <td className="px-4 py-3">
                       <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${STATUS_COLORS[opp.status]}`}>
                         {STATUS_LABELS[opp.status]}
@@ -195,10 +195,10 @@ export function AdminOpportunitiesPage() {
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-1">
-                        <Link to={`/opportunite/${opp.slug}`} className="p-1.5 text-gray-400 hover:text-[#080808]" title="Voir">
+                        <Link to={`/opportunite/${opp.slug}`} className="p-1.5 text-gray-500 hover:text-[#080808]" title="Voir">
                           <Eye className="w-4 h-4" />
                         </Link>
-                        <Link to={`/admin/opportunite/${opp.id}`} className="p-1.5 text-gray-400 hover:text-[#FFD400]" title="Modifier">
+                        <Link to={`/admin/opportunite/${opp.id}`} className="p-1.5 text-gray-500 hover:text-[#FFD400]" title="Modifier">
                           <Edit className="w-4 h-4" />
                         </Link>
                       </div>
@@ -218,8 +218,8 @@ export function AdminSubHeader({ title }: { title: string }) {
   return (
     <div className="bg-[#080808] text-white py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-sm">
-        <Link to="/admin" className="text-gray-400 hover:text-[#FFD400]">Admin</Link>
-        <span className="text-gray-600">/</span>
+        <Link to="/admin" className="text-gray-500 hover:text-[#FFD400]">Admin</Link>
+        <span className="text-gray-500">/</span>
         <span className="text-white font-medium">{title}</span>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2">

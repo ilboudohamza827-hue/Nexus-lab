@@ -76,7 +76,7 @@ export function deadlineColor(opportunity: Opportunity): string {
   if (days < 0) return 'text-red-600 font-semibold';
   if (days <= 3) return 'text-red-600 font-semibold';
   if (days <= 14) return 'text-yellow-700 font-medium';
-  return 'text-gray-600';
+  return 'text-gray-500';
 }
 
 const LEVEL_ORDER: Record<string, number> = {

@@ -54,7 +54,7 @@ export function FavoritesPage() {
           <h1 className="text-2xl md:text-3xl font-bold flex items-center gap-2">
             <Heart className="w-6 h-6 text-[#FFD400]" /> Mes favoris
           </h1>
-          <p className="text-gray-400 text-sm mt-1">
+          <p className="text-gray-500 text-sm mt-1">
             {favorites.length > 0 ? `${favorites.length} opportunité${favorites.length > 1 ? 's' : ''} enregistrée${favorites.length > 1 ? 's' : ''}` : 'Aucun favori pour le moment'}
           </p>
         </div>

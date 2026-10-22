@@ -56,7 +56,7 @@ export function UserDashboardPage() {
           <h1 className="text-2xl md:text-3xl font-bold flex items-center gap-2">
             <LayoutDashboard className="w-6 h-6 text-[#FFD400]" /> Tableau de bord
           </h1>
-          <p className="text-gray-400 text-sm mt-1">Bienvenue, {profile?.display_name || user.email}</p>
+          <p className="text-gray-500 text-sm mt-1">Bienvenue, {profile?.display_name || user.email}</p>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ export function UserDashboardPage() {
             </div>
             <div>
               <p className="font-semibold text-sm text-[#080808]">Pour toi</p>
-              <p className="text-xs text-gray-400">Recommandations</p>
+              <p className="text-xs text-gray-500">Recommandations</p>
             </div>
           </Link>
           <Link to="/catalogue" className="bg-white rounded-xl border border-gray-200 p-4 nx-card flex items-center gap-3">
@@ -103,7 +103,7 @@ export function UserDashboardPage() {
             </div>
             <div>
               <p className="font-semibold text-sm text-[#080808]">Catalogue</p>
-              <p className="text-xs text-gray-400">Explorer</p>
+              <p className="text-xs text-gray-500">Explorer</p>
             </div>
           </Link>
           <Link to="/questionnaire" className="bg-white rounded-xl border border-gray-200 p-4 nx-card flex items-center gap-3">
@@ -112,7 +112,7 @@ export function UserDashboardPage() {
             </div>
             <div>
               <p className="font-semibold text-sm text-[#080808]">Questionnaire</p>
-              <p className="text-xs text-gray-400">{hasQuestionnaire ? 'Modifier' : 'Commencer'}</p>
+              <p className="text-xs text-gray-500">{hasQuestionnaire ? 'Modifier' : 'Commencer'}</p>
             </div>
           </Link>
           <Link to="/favoris" className="bg-white rounded-xl border border-gray-200 p-4 nx-card flex items-center gap-3">
@@ -121,7 +121,7 @@ export function UserDashboardPage() {
             </div>
             <div>
               <p className="font-semibold text-sm text-[#080808]">Favoris</p>
-              <p className="text-xs text-gray-400">Mes sauvegardes</p>
+              <p className="text-xs text-gray-500">Mes sauvegardes</p>
             </div>
           </Link>
         </div>
@@ -151,7 +151,7 @@ export function UserDashboardPage() {
                         {isExpired(opp) && <Badge>Expirée</Badge>}
                       </div>
                       <h3 className="font-bold text-sm text-[#080808] line-clamp-1">{opp.title}</h3>
-                      {opp.organization && <p className="text-xs text-gray-400 mt-0.5">{opp.organization}</p>}
+                      {opp.organization && <p className="text-xs text-gray-500 mt-0.5">{opp.organization}</p>}
                     </div>
                     <div className="text-right flex-shrink-0">
                       <p className={`text-xs font-semibold ${deadlineColor(opp)}`}>{deadlineLabel(opp)}</p>

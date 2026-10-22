@@ -67,7 +67,7 @@ export function HubActivityDetailPage({ slug }: { slug: string }) {
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 py-3">
-          <button onClick={() => navigate('/hub/activites')} className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#080808]"><ArrowLeft className="w-4 h-4" /> Retour aux activités</button>
+          <button onClick={() => navigate('/hub/activites')} className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#080808]"><ArrowLeft className="w-4 h-4" /> Retour aux activités</button>
         </div>
       </div>
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -178,7 +178,7 @@ export function HubClubDetailPage({ slug }: { slug: string }) {
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 py-3">
-          <button onClick={() => navigate('/hub/clubs')} className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#080808]"><ArrowLeft className="w-4 h-4" /> Retour aux clubs</button>
+          <button onClick={() => navigate('/hub/clubs')} className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#080808]"><ArrowLeft className="w-4 h-4" /> Retour aux clubs</button>
         </div>
       </div>
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -211,13 +211,13 @@ export function HubClubDetailPage({ slug }: { slug: string }) {
                 <div className="text-center">
                   <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
                   <p className="text-sm font-semibold text-green-700 mb-1">Tu es membre !</p>
-                  <p className="text-xs text-gray-400">Rôle: {userMembership.role}</p>
+                  <p className="text-xs text-gray-500">Rôle: {userMembership.role}</p>
                 </div>
               ) : userJoinRequest ? (
                 <div className="text-center">
                   <Clock className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
                   <p className="text-sm font-semibold text-yellow-700">Demande envoyée</p>
-                  <p className="text-xs text-gray-400 mt-1">En attente de validation.</p>
+                  <p className="text-xs text-gray-500 mt-1">En attente de validation.</p>
                 </div>
               ) : user ? (
                 showJoinMsg ? (
@@ -234,14 +234,14 @@ export function HubClubDetailPage({ slug }: { slug: string }) {
             </div>
             <div className="bg-white rounded-xl border border-gray-200 p-5">
               <h3 className="font-bold text-sm text-[#080808] mb-3">Membres ({memberCount})</h3>
-              {members.length === 0 ? <p className="text-xs text-gray-400">Aucun membre pour le moment.</p> : (
+              {members.length === 0 ? <p className="text-xs text-gray-500">Aucun membre pour le moment.</p> : (
                 <div className="space-y-2">
                   {members.slice(0, 10).map((m) => (
                     <div key={m.id} className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-[#FFD400] rounded-full flex items-center justify-center"><span className="text-[#080808] font-bold text-xs">?</span></div>
                       <div>
                         <p className="text-xs font-medium text-[#080808]">Membre</p>
-                        <p className="text-xs text-gray-400">{m.role}</p>
+                        <p className="text-xs text-gray-500">{m.role}</p>
                       </div>
                     </div>
                   ))}
@@ -318,7 +318,7 @@ export function HubProjectDetailPage({ slug }: { slug: string }) {
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 py-3">
-          <button onClick={() => navigate('/hub/projets')} className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#080808]"><ArrowLeft className="w-4 h-4" /> Retour aux projets</button>
+          <button onClick={() => navigate('/hub/projets')} className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#080808]"><ArrowLeft className="w-4 h-4" /> Retour aux projets</button>
         </div>
       </div>
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -352,7 +352,7 @@ export function HubProjectDetailPage({ slug }: { slug: string }) {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {galleryItems.map((item) => (
                     <div key={item.id} className="rounded-lg overflow-hidden border border-gray-200">
-                      {item.image_url ? <img src={item.image_url} alt={item.title} className="w-full h-24 object-cover" /> : <div className="w-full h-24 bg-gray-100 flex items-center justify-center"><ImageIcon className="w-6 h-6 text-gray-400" /></div>}
+                      {item.image_url ? <img src={item.image_url} alt={item.title} className="w-full h-24 object-cover" /> : <div className="w-full h-24 bg-gray-50 flex items-center justify-center"><ImageIcon className="w-6 h-6 text-gray-500" /></div>}
                       <p className="text-xs font-medium text-[#080808] p-2 line-clamp-1">{item.title}</p>
                     </div>
                   ))}
@@ -367,13 +367,13 @@ export function HubProjectDetailPage({ slug }: { slug: string }) {
                 <div className="text-center">
                   <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
                   <p className="text-sm font-semibold text-green-700">Tu fais partie de l'équipe !</p>
-                  <p className="text-xs text-gray-400 mt-1">Rôle: {userMembership.role}</p>
+                  <p className="text-xs text-gray-500 mt-1">Rôle: {userMembership.role}</p>
                 </div>
               ) : userJoinRequest ? (
                 <div className="text-center">
                   <Clock className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
                   <p className="text-sm font-semibold text-yellow-700">Demande envoyée</p>
-                  <p className="text-xs text-gray-400 mt-1">En attente de réponse.</p>
+                  <p className="text-xs text-gray-500 mt-1">En attente de réponse.</p>
                 </div>
               ) : user ? (
                 showJoinForm ? (
@@ -391,7 +391,7 @@ export function HubProjectDetailPage({ slug }: { slug: string }) {
             </div>
             <div className="bg-white rounded-xl border border-gray-200 p-5">
               <h3 className="font-bold text-sm text-[#080808] mb-3">Équipe ({members.length})</h3>
-              {members.length === 0 ? <p className="text-xs text-gray-400">Aucun membre pour le moment.</p> : (
+              {members.length === 0 ? <p className="text-xs text-gray-500">Aucun membre pour le moment.</p> : (
                 <div className="space-y-2">
                   {members.map((m) => (
                     <div key={m.id} className="flex items-center gap-2">
@@ -416,7 +416,7 @@ export function HubProjectDetailPage({ slug }: { slug: string }) {
 function InfoRow({ icon, label, value }: { icon?: React.ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-start justify-between gap-3">
-      <dt className="flex items-center gap-2 text-gray-500 flex-shrink-0">{icon && <span className="text-gray-400">{icon}</span>}{label}</dt>
+      <dt className="flex items-center gap-2 text-gray-500 flex-shrink-0">{icon && <span className="text-gray-500">{icon}</span>}{label}</dt>
       <dd className="text-right font-medium text-[#080808]">{value}</dd>
     </div>
   );

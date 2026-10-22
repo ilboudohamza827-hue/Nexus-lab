@@ -37,7 +37,7 @@ export function LoginPage() {
             </span>
           </Link>
           <h1 className="text-2xl font-bold text-white mb-1">Connexion</h1>
-          <p className="text-sm text-gray-400">Accède à ton espace personnel</p>
+          <p className="text-sm text-gray-500">Accède à ton espace personnel</p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 md:p-8">
@@ -50,7 +50,7 @@ export function LoginPage() {
             <div>
               <label className="block text-xs font-semibold text-gray-700 mb-1.5">Email</label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
@@ -64,7 +64,7 @@ export function LoginPage() {
             <div>
               <label className="block text-xs font-semibold text-gray-700 mb-1.5">Mot de passe</label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
@@ -139,7 +139,7 @@ export function SignUpPage() {
             </span>
           </Link>
           <h1 className="text-2xl font-bold text-white mb-1">Créer un compte</h1>
-          <p className="text-sm text-gray-400">Gratuit. Pour toujours.</p>
+          <p className="text-sm text-gray-500">Gratuit. Pour toujours.</p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 md:p-8">
@@ -162,7 +162,7 @@ export function SignUpPage() {
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 mb-1.5">Nom affiché</label>
                   <div className="relative">
-                    <UserIcon className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <UserIcon className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
                       type="text"
                       required
@@ -176,7 +176,7 @@ export function SignUpPage() {
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 mb-1.5">Email</label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Mail className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
                       type="email"
                       required
@@ -190,7 +190,7 @@ export function SignUpPage() {
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 mb-1.5">Mot de passe</label>
                   <div className="relative">
-                    <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Lock className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
                       type="password"
                       required

@@ -46,7 +46,7 @@ export function VideoCard({ video }: VideoCardProps) {
           <p className="text-xs text-gray-500 mb-2">{video.channel_name}</p>
         )}
         {video.description && (
-          <p className="text-xs text-gray-600 line-clamp-2">{video.description}</p>
+          <p className="text-xs text-gray-500 line-clamp-2">{video.description}</p>
         )}
         <a
           href={video.youtube_url}

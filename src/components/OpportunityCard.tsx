@@ -77,7 +77,7 @@ export function OpportunityCard({ opportunity, isFavorite, onFavoriteToggle, mat
               className={`p-1.5 rounded-lg transition-colors ${
                 isFavorite
                   ? 'text-red-500 hover:bg-red-50'
-                  : 'text-gray-400 hover:text-red-500 hover:bg-red-50'
+                  : 'text-gray-500 hover:text-red-500 hover:bg-red-50'
               }`}
               title={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
             >
@@ -104,28 +104,28 @@ export function OpportunityCard({ opportunity, isFavorite, onFavoriteToggle, mat
         )}
 
         {/* Meta info */}
-        <div className="space-y-1.5 text-sm text-gray-600">
+        <div className="space-y-1.5 text-sm text-gray-500">
           {opportunity.organization && (
             <div className="flex items-center gap-2">
-              <Building2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <Building2 className="w-4 h-4 text-gray-500 flex-shrink-0" />
               <span className="truncate">{opportunity.organization}</span>
             </div>
           )}
           {opportunity.study_level && (
             <div className="flex items-center gap-2">
-              <GraduationCap className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <GraduationCap className="w-4 h-4 text-gray-500 flex-shrink-0" />
               <span>{opportunity.study_level}</span>
             </div>
           )}
           {opportunity.eligible_countries.length > 0 && (
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
               <span className="truncate">{opportunity.eligible_countries.join(', ')}</span>
             </div>
           )}
           <div className="flex items-center gap-2">
-            <Clock className={`w-4 h-4 flex-shrink-0 ${expired ? 'text-gray-400' : 'text-gray-400'}`} />
-            <span className={expired ? 'text-gray-400' : deadlineColor(opportunity)}>
+            <Clock className={`w-4 h-4 flex-shrink-0 ${expired ? 'text-gray-500' : 'text-gray-500'}`} />
+            <span className={expired ? 'text-gray-500' : deadlineColor(opportunity)}>
               {deadlineLabel(opportunity)}
             </span>
           </div>
@@ -133,7 +133,7 @@ export function OpportunityCard({ opportunity, isFavorite, onFavoriteToggle, mat
       </div>
 
       {/* Footer */}
-      <div className="px-5 pb-5 pt-2 border-t border-gray-100 flex items-center justify-between">
+      <div className="px-5 pb-5 pt-2 border-t border-gray-200 flex items-center justify-between">
         <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${STATUS_COLORS[opportunity.status]}`}>
           {STATUS_LABELS[opportunity.status]}
         </span>

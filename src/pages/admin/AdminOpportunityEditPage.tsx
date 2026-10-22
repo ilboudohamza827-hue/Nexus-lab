@@ -190,7 +190,7 @@ export function AdminOpportunityEditPage({ id }: { id: string }) {
     <div className="min-h-screen bg-gray-50">
       <AdminSubHeader title={isNew ? 'Nouvelle opportunité' : 'Modifier l\'opportunité'} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link to="/admin/opportunites" className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#080808] mb-4">
+        <Link to="/admin/opportunites" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#080808] mb-4">
           <ArrowLeft className="w-4 h-4" /> Retour à la liste
         </Link>
 
@@ -334,7 +334,7 @@ export function AdminOpportunityEditPage({ id }: { id: string }) {
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium border-2 transition-colors ${
                     form.selectedStudyFields.includes(f.id)
                       ? 'border-[#FFD400] bg-yellow-50 text-[#080808]'
-                      : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                      : 'border-gray-200 text-gray-500 hover:border-gray-300'
                   }`}
                 >
                   {f.name}

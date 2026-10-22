@@ -122,12 +122,12 @@ export function AdminHubActivitiesPage() {
               <div key={act.id} className="flex items-center justify-between p-4">
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-sm text-[#080808] line-clamp-1">{act.title}</p>
-                  <p className="text-xs text-gray-400">{act.activity_date ? formatDateTime(act.activity_date) : 'Pas de date'} • {act.location ?? 'Lieu non défini'}</p>
+                  <p className="text-xs text-gray-500">{act.activity_date ? formatDateTime(act.activity_date) : 'Pas de date'} • {act.location ?? 'Lieu non défini'}</p>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${ACTIVITY_STATUS_COLORS[act.status]}`}>{ACTIVITY_STATUS_LABELS[act.status]}</span>
-                  <button onClick={() => startEdit(act)} className="p-1.5 text-gray-400 hover:text-[#FFD400]"><Edit className="w-4 h-4" /></button>
-                  <button onClick={() => deleteActivity(act.id)} className="p-1.5 text-gray-400 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => startEdit(act)} className="p-1.5 text-gray-500 hover:text-[#FFD400]"><Edit className="w-4 h-4" /></button>
+                  <button onClick={() => deleteActivity(act.id)} className="p-1.5 text-gray-500 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}
@@ -199,7 +199,7 @@ export function AdminHubClubsPage() {
                   <div>
                     <p className="font-medium text-sm text-[#080808]">Demande pour « {req.club.name} »</p>
                     {req.message && <p className="text-xs text-gray-500 mt-1">"{req.message}"</p>}
-                    <p className="text-xs text-gray-400 mt-1">{formatDate(req.created_at)}</p>
+                    <p className="text-xs text-gray-500 mt-1">{formatDate(req.created_at)}</p>
                   </div>
                   <div className="flex gap-2">
                     <button onClick={() => handleJoinRequest(req.id, true)} className="px-3 py-1.5 bg-green-100 text-green-700 text-xs font-bold rounded-lg hover:bg-green-200">Approuver</button>
@@ -219,7 +219,7 @@ export function AdminHubClubsPage() {
               <div key={club.id} className="flex items-center justify-between p-4">
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-sm text-[#080808] line-clamp-1">{club.name}</p>
-                  {club.category && <p className="text-xs text-gray-400">{club.category.name}</p>}
+                  {club.category && <p className="text-xs text-gray-500">{club.category.name}</p>}
                 </div>
                 <select value={club.status} onChange={(e) => updateClubStatus(club.id, e.target.value as ClubStatus)} className="text-xs border border-gray-200 rounded-lg px-2 py-1 outline-none focus:border-[#FFD400] bg-white">
                   {Object.entries(CLUB_STATUS_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
@@ -282,11 +282,11 @@ export function AdminHubProjectsPage() {
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${PROJECT_STATUS_COLORS[proj.status]}`}>{PROJECT_STATUS_LABELS[proj.status]}</span>
-                  <button onClick={() => deleteProject(proj.id)} className="p-1.5 text-gray-400 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => deleteProject(proj.id)} className="p-1.5 text-gray-500 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-400">Modération:</span>
+                <span className="text-xs text-gray-500">Modération:</span>
                 <select value={proj.moderation_status} onChange={(e) => updateModeration(proj.id, e.target.value as ModerationStatus)} className="text-xs border border-gray-200 rounded-lg px-2 py-1 outline-none focus:border-[#FFD400] bg-white">
                   <option value="en_attente">En attente</option>
                   <option value="approuve">Approuvé</option>
@@ -376,7 +376,7 @@ export function AdminHubGalleryPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {items.map((item) => (
               <div key={item.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-                {item.image_url ? <img src={item.image_url} alt={item.title} className="w-full h-32 object-cover" /> : <div className="w-full h-32 bg-gray-100 flex items-center justify-center"><ImageIcon className="w-8 h-8 text-gray-400" /></div>}
+                {item.image_url ? <img src={item.image_url} alt={item.title} className="w-full h-32 object-cover" /> : <div className="w-full h-32 bg-gray-50 flex items-center justify-center"><ImageIcon className="w-8 h-8 text-gray-500" /></div>}
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-medium text-gray-500">{GALLERY_TYPE_LABELS[item.item_type]}</span>
@@ -387,7 +387,7 @@ export function AdminHubGalleryPage() {
                     </select>
                   </div>
                   <p className="font-medium text-sm text-[#080808] line-clamp-1">{item.title}</p>
-                  <button onClick={() => deleteItem(item.id)} className="text-xs text-gray-400 hover:text-red-500 mt-2 inline-flex items-center gap-1"><Trash2 className="w-3 h-3" /> Supprimer</button>
+                  <button onClick={() => deleteItem(item.id)} className="text-xs text-gray-500 hover:text-red-500 mt-2 inline-flex items-center gap-1"><Trash2 className="w-3 h-3" /> Supprimer</button>
                 </div>
               </div>
             ))}

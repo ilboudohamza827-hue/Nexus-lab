@@ -167,14 +167,14 @@ export function AdminVideosPage() {
                 <img src={`https://img.youtube.com/vi/${video.youtube_id}/default.jpg`} alt="" className="w-20 h-14 rounded object-cover flex-shrink-0" onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')} />
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-sm text-[#080808] line-clamp-1">{video.title}</p>
-                  <p className="text-xs text-gray-400">{video.channel_name} • {video.video_category}</p>
-                  <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${video.status === 'publiee' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                  <p className="text-xs text-gray-500">{video.channel_name} • {video.video_category}</p>
+                  <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${video.status === 'publiee' ? 'bg-green-100 text-green-700' : 'bg-gray-50 text-gray-500'}`}>
                     {video.status === 'publiee' ? 'Publiée' : 'Brouillon'}
                   </span>
                 </div>
                 <div className="flex gap-1 flex-shrink-0">
-                  <button onClick={() => startEdit(video)} className="p-2 text-gray-400 hover:text-[#FFD400]"><Edit className="w-4 h-4" /></button>
-                  <button onClick={() => deleteVideo(video.id)} className="p-2 text-gray-400 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => startEdit(video)} className="p-2 text-gray-500 hover:text-[#FFD400]"><Edit className="w-4 h-4" /></button>
+                  <button onClick={() => deleteVideo(video.id)} className="p-2 text-gray-500 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}
@@ -271,14 +271,14 @@ export function AdminCategoriesPage() {
               <div key={cat.id} className="flex items-center justify-between p-3">
                 <div>
                   <p className="font-medium text-sm text-[#080808]">{cat.name}</p>
-                  <p className="text-xs text-gray-400">{cat.slug}</p>
+                  <p className="text-xs text-gray-500">{cat.slug}</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${cat.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${cat.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-50 text-gray-500'}`}>
                     {cat.is_active ? 'Active' : 'Inactive'}
                   </span>
-                  <button onClick={() => toggleCategoryActive(cat)} className="p-1.5 text-gray-400 hover:text-[#FFD400]"><Check className="w-4 h-4" /></button>
-                  <button onClick={() => deleteCategory(cat.id)} className="p-1.5 text-gray-400 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => toggleCategoryActive(cat)} className="p-1.5 text-gray-500 hover:text-[#FFD400]"><Check className="w-4 h-4" /></button>
+                  <button onClick={() => deleteCategory(cat.id)} className="p-1.5 text-gray-500 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}
@@ -299,14 +299,14 @@ export function AdminCategoriesPage() {
               <div key={field.id} className="flex items-center justify-between p-3">
                 <div>
                   <p className="font-medium text-sm text-[#080808]">{field.name}</p>
-                  <p className="text-xs text-gray-400">{field.slug}</p>
+                  <p className="text-xs text-gray-500">{field.slug}</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${field.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${field.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-50 text-gray-500'}`}>
                     {field.is_active ? 'Active' : 'Inactive'}
                   </span>
-                  <button onClick={() => toggleFieldActive(field)} className="p-1.5 text-gray-400 hover:text-[#FFD400]"><Check className="w-4 h-4" /></button>
-                  <button onClick={() => deleteField(field.id)} className="p-1.5 text-gray-400 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => toggleFieldActive(field)} className="p-1.5 text-gray-500 hover:text-[#FFD400]"><Check className="w-4 h-4" /></button>
+                  <button onClick={() => deleteField(field.id)} className="p-1.5 text-gray-500 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}
@@ -368,7 +368,7 @@ export function AdminUsersPage() {
                 {profiles.map((p) => (
                   <tr key={p.id} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-[#080808]">{p.display_name}</td>
-                    <td className="px-4 py-3 text-gray-600 hidden md:table-cell">{p.email}</td>
+                    <td className="px-4 py-3 text-gray-500 hidden md:table-cell">{p.email}</td>
                     <td className="px-4 py-3">
                       <select
                         value={p.role}
@@ -387,7 +387,7 @@ export function AdminUsersPage() {
             </table>
           </div>
         )}
-        <p className="text-xs text-gray-400 mt-4">
+        <p className="text-xs text-gray-500 mt-4">
           Les rôles administratifs sont protégés côté serveur. Un utilisateur ne peut pas s'auto-attribuer un rôle élevé.
         </p>
       </div>
@@ -456,8 +456,8 @@ export function AdminReportsPage() {
                         {report.opportunity.title}
                       </Link>
                     )}
-                    {report.details && <p className="text-sm text-gray-600 mt-1">{report.details}</p>}
-                    <p className="text-xs text-gray-400 mt-1">{formatDate(report.created_at)}</p>
+                    {report.details && <p className="text-sm text-gray-500 mt-1">{report.details}</p>}
+                    <p className="text-xs text-gray-500 mt-1">{formatDate(report.created_at)}</p>
                   </div>
                   <select
                     value={report.status}

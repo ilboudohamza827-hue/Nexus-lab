@@ -137,7 +137,7 @@ export function CatalogPage() {
           <h1 className="text-2xl md:text-3xl font-bold mb-2">
             Catalogue des <span className="text-[#FFD400]">opportunités</span>
           </h1>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             {totalCount > 0 ? `${totalCount} opportunité${totalCount > 1 ? 's' : ''} disponible${totalCount > 1 ? 's' : ''}` : 'Explore toutes les opportunités éducatives'}
           </p>
         </div>
@@ -147,7 +147,7 @@ export function CatalogPage() {
         {/* Search bar */}
         <div className="mb-6 flex gap-3">
           <div className="flex-1 flex items-center gap-2 bg-white rounded-xl border border-gray-200 px-4 py-2.5">
-            <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
+            <Search className="w-5 h-5 text-gray-500 flex-shrink-0" />
             <input
               type="text"
               value={searchQuery}
@@ -159,7 +159,7 @@ export function CatalogPage() {
               className="flex-1 outline-none text-sm text-[#080808]"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="text-gray-400 hover:text-gray-600">
+              <button onClick={() => setSearchQuery('')} className="text-gray-500 hover:text-gray-500">
                 <X className="w-4 h-4" />
               </button>
             )}
@@ -257,7 +257,7 @@ export function CatalogPage() {
           <div className="flex-1">
             {/* Sort bar */}
             <div className="flex items-center justify-between mb-4">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-500">
                 {loading ? 'Chargement...' : `${totalCount} résultat${totalCount > 1 ? 's' : ''}`}
               </p>
               <div className="flex items-center gap-2">
@@ -318,7 +318,7 @@ export function CatalogPage() {
                       .map((page, idx, arr) => (
                         <span key={page} className="flex items-center gap-1">
                           {idx > 0 && arr[idx - 1] !== page - 1 && (
-                            <span className="text-gray-400 px-1">...</span>
+                            <span className="text-gray-500 px-1">...</span>
                           )}
                           <button
                             onClick={() => setCurrentPage(page)}

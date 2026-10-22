@@ -146,7 +146,7 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <button
             onClick={() => navigate('/catalogue')}
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#080808] transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#080808] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Retour au catalogue
           </button>
@@ -182,8 +182,8 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
             </h1>
 
             {opportunity.organization && (
-              <p className="text-gray-600 mb-4 flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-gray-400" /> {opportunity.organization}
+              <p className="text-gray-500 mb-4 flex items-center gap-2">
+                <Building2 className="w-5 h-5 text-gray-500" /> {opportunity.organization}
               </p>
             )}
 
@@ -342,7 +342,7 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
                 <InfoRow label="Publiée le" value={formatDate(opportunity.published_at)} />
                 <InfoRow label="Dernière vérification" value={opportunity.last_verified_at ? formatDateTime(opportunity.last_verified_at) : 'Non vérifiée'} />
               </dl>
-              <p className="text-xs text-gray-400 mt-3 leading-relaxed">
+              <p className="text-xs text-gray-500 mt-3 leading-relaxed">
                 NexusLab informe et oriente les candidats. Il ne garantit ni l'obtention d'une bourse,
                 ni une admission, ni une sélection.
               </p>
@@ -395,7 +395,7 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
                   <div className="flex gap-2 justify-end">
                     <button
                       onClick={() => setShowReport(false)}
-                      className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg"
+                      className="px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-lg"
                     >
                       Annuler
                     </button>
@@ -421,7 +421,7 @@ function InfoRow({ icon, label, value, valueClass }: { icon?: React.ReactNode; l
   return (
     <div className="flex items-start justify-between gap-3">
       <dt className="flex items-center gap-2 text-gray-500 flex-shrink-0">
-        {icon && <span className="text-gray-400">{icon}</span>}
+        {icon && <span className="text-gray-500">{icon}</span>}
         {label}
       </dt>
       <dd className={`text-right font-medium ${valueClass || 'text-[#080808]'}`}>{value}</dd>
