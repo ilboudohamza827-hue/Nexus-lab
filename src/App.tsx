@@ -1,4 +1,5 @@
 import { AuthProvider } from '@/lib/auth';
+import { ToastProvider } from '@/lib/toast';
 import { RouterProvider, useRouter, parseRoute } from '@/lib/router';
 import { Header, Footer } from '@/components/Layout';
 import { HomePage } from '@/pages/HomePage';
@@ -80,9 +81,11 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <RouterProvider>
-        <AppContent />
-      </RouterProvider>
+      <ToastProvider>
+        <RouterProvider>
+          <AppContent />
+        </RouterProvider>
+      </ToastProvider>
     </AuthProvider>
   );
 }

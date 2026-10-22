@@ -4,6 +4,7 @@ import { Link } from '@/lib/router';
 import { deadlineLabel, deadlineColor, isExpired } from '@/lib/utils';
 import { Heart, MapPin, GraduationCap, Building2, Clock, ArrowRight, BadgeCheck, AlertCircle } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
+import { useToast } from '@/lib/toast';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
@@ -16,6 +17,7 @@ interface OpportunityCardProps {
 
 export function OpportunityCard({ opportunity, isFavorite, onFavoriteToggle, matchReason }: OpportunityCardProps) {
   const { user } = useAuth();
+  const { toast } = useToast();
   const [favLoading, setFavLoading] = useState(false);
   const expired = isExpired(opportunity);
 
@@ -24,17 +26,23 @@ export function OpportunityCard({ opportunity, isFavorite, onFavoriteToggle, mat
     setFavLoading(true);
     try {
       if (isFavorite) {
-        await supabase
+        const { error } = await supabase
           .from('favorites')
           .delete()
           .eq('user_id', user.id)
           .eq('opportunity_id', opportunity.id);
+        if (error) throw error;
+        toast('Retiré des favoris', 'info');
       } else {
-        await supabase
+        const { error } = await supabase
           .from('favorites')
           .insert({ user_id: user.id, opportunity_id: opportunity.id });
+        if (error) throw error;
+        toast('Ajouté aux favoris', 'success');
       }
       onFavoriteToggle?.();
+    } catch {
+      toast('Une erreur est survenue', 'error');
     } finally {
       setFavLoading(false);
     }

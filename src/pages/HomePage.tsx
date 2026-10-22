@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Link, useRouter } from '@/lib/router';
 import { supabase } from '@/lib/supabase';
-import type { Opportunity, Category } from '@/lib/types';
+import type { Opportunity, Category, Video } from '@/lib/types';
 import { OpportunityCard } from '@/components/OpportunityCard';
+import { VideoCard } from '@/components/VideoCard';
 import { LoadingSpinner } from '@/components/UI';
 import { Search, ArrowRight, Compass, Target, ShieldCheck, BookOpen, Video as VideoIcon, Sparkles, Calendar } from 'lucide-react';
-import { formatDate, deadlineLabel, deadlineColor, isExpired } from '@/lib/utils';
-
+import { deadlineLabel, deadlineColor, isExpired } from '@/lib/utils';
 export function HomePage() {
   const { navigate } = useRouter();
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     async function load() {
-      const [oppResult, catResult] = await Promise.all([
+      const [oppResult, catResult, vidResult] = await Promise.all([
         supabase
           .from('opportunities')
           .select('*, category:categories(*)')
@@ -28,9 +29,16 @@ export function HomePage() {
           .select('*')
           .eq('is_active', true)
           .order('sort_order'),
+        supabase
+          .from('videos')
+          .select('*')
+          .eq('status', 'publiee')
+          .order('created_at', { ascending: false })
+          .limit(4),
       ]);
       setOpportunities(oppResult.data as unknown as Opportunity[] ?? []);
       setCategories(catResult.data as Category[] ?? []);
+      setVideos(vidResult.data as Video[] ?? []);
       setLoading(false);
     }
     load();
@@ -249,19 +257,27 @@ export function HomePage() {
             Toutes les vidéos <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-        <div className="bg-gray-50 rounded-xl border border-gray-200 p-8 text-center">
-          <VideoIcon className="w-12 h-12 text-[#FFD400] mx-auto mb-3" />
-          <p className="text-sm text-gray-600 max-w-lg mx-auto">
-            Des vidéos éducatives pour t'aider à préparer tes candidatures, rédiger ton CV,
-            préparer un entretien et bien plus. Disponible prochainement.
-          </p>
-          <Link
-            to="/videos"
-            className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-[#080808] text-white font-semibold rounded-lg hover:bg-[#FFD400] hover:text-[#080808] transition-colors"
-          >
-            Découvrir les vidéos <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+        {videos.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {videos.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))}
+          </div>
+        ) : (
+          <div className="bg-gray-50 rounded-xl border border-gray-200 p-8 text-center">
+            <VideoIcon className="w-12 h-12 text-[#FFD400] mx-auto mb-3" />
+            <p className="text-sm text-gray-600 max-w-lg mx-auto">
+              Des vidéos éducatives pour t'aider à préparer tes candidatures, rédiger ton CV,
+              préparer un entretien et bien plus. Disponible prochainement.
+            </p>
+            <Link
+              to="/videos"
+              className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-[#080808] text-white font-semibold rounded-lg hover:bg-[#FFD400] hover:text-[#080808] transition-colors"
+            >
+              Découvrir les vidéos <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        )}
       </section>
     </div>
   );

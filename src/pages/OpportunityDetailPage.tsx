@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import type { Opportunity, Video, Report } from '@/lib/types';
+import type { Opportunity, Video, StudyField } from '@/lib/types';
 import { STATUS_LABELS, STATUS_COLORS } from '@/lib/types';
-import { Link, useRouter } from '@/lib/router';
+import { useRouter } from '@/lib/router';
 import { useAuth } from '@/lib/auth';
+import { useToast } from '@/lib/toast';
 import { LoadingSpinner, EmptyState, Badge } from '@/components/UI';
 import { VideoCard } from '@/components/VideoCard';
 import {
@@ -15,6 +16,7 @@ import { formatDate, formatDateTime, daysUntilDeadline, deadlineLabel, deadlineC
 export function OpportunityDetailPage({ slug }: { slug: string }) {
   const { navigate } = useRouter();
   const { user } = useAuth();
+  const { toast } = useToast();
   const [opportunity, setOpportunity] = useState<Opportunity | null>(null);
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +38,7 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
       if (data) {
         const opp = {
           ...data,
-          study_fields: (data as unknown as { study_fields: { study_field: StudyFieldData }[] }).study_fields?.map((s) => s.study_field) ?? [],
+          study_fields: (data as unknown as { study_fields: { study_field: StudyField }[] }).study_fields?.map((s) => s.study_field) ?? [],
         } as unknown as Opportunity;
         setOpportunity(opp);
 
@@ -73,12 +75,18 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
     setFavLoading(true);
     try {
       if (isFav) {
-        await supabase.from('favorites').delete().eq('user_id', user.id).eq('opportunity_id', opportunity.id);
+        const { error } = await supabase.from('favorites').delete().eq('user_id', user.id).eq('opportunity_id', opportunity.id);
+        if (error) throw error;
         setIsFav(false);
+        toast('Retiré des favoris', 'info');
       } else {
-        await supabase.from('favorites').insert({ user_id: user.id, opportunity_id: opportunity.id });
+        const { error } = await supabase.from('favorites').insert({ user_id: user.id, opportunity_id: opportunity.id });
+        if (error) throw error;
         setIsFav(true);
+        toast('Ajouté aux favoris', 'success');
       }
+    } catch {
+      toast('Une erreur est survenue', 'error');
     } finally {
       setFavLoading(false);
     }
@@ -86,12 +94,17 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
 
   async function submitReport() {
     if (!user || !opportunity || !reportReason) return;
-    await supabase.from('reports').insert({
+    const { error } = await supabase.from('reports').insert({
       opportunity_id: opportunity.id,
       user_id: user.id,
       reason: reportReason,
       details: reportDetails || null,
     });
+    if (error) {
+      toast('Une erreur est survenue', 'error');
+      return;
+    }
+    toast('Signalement envoyé', 'success');
     setReportSent(true);
     setTimeout(() => {
       setShowReport(false);
@@ -99,6 +112,16 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
       setReportReason('');
       setReportDetails('');
     }, 2000);
+  }
+
+  function handleShare() {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({ title: opportunity?.title ?? 'Opportunité NexusLab', url }).catch(() => {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(url);
+      toast('Lien copié dans le presse-papiers', 'success');
+    }
   }
 
   if (loading) return <LoadingSpinner />;
@@ -198,14 +221,20 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
                 <Heart className={`w-4 h-4 ${isFav ? 'fill-current' : ''}`} />
                 {isFav ? 'Sauvegardé' : 'Sauvegarder'}
               </button>
-              {user && (
                 <button
-                  onClick={() => setShowReport(true)}
-                  className="px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-500 hover:border-orange-300 hover:text-orange-600 transition-colors inline-flex items-center gap-2"
+                  onClick={handleShare}
+                  className="px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-700 hover:border-[#080808] transition-colors inline-flex items-center gap-2"
                 >
-                  <Flag className="w-4 h-4" /> Signaler
+                  <Share2 className="w-4 h-4" /> Partager
                 </button>
-              )}
+                {user && (
+                  <button
+                    onClick={() => setShowReport(true)}
+                    className="px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-500 hover:border-orange-300 hover:text-orange-600 transition-colors inline-flex items-center gap-2"
+                  >
+                    <Flag className="w-4 h-4" /> Signaler
+                  </button>
+                )}
             </div>
           </div>
 
@@ -400,11 +429,4 @@ function InfoRow({ icon, label, value, valueClass }: { icon?: React.ReactNode; l
   );
 }
 
-type StudyFieldData = {
-  id: string;
-  name: string;
-  slug: string;
-  is_active: boolean;
-  sort_order: number;
-  created_at: string;
-};
+
