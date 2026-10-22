@@ -66,11 +66,19 @@ export function HomePage() {
           backgroundImage: 'radial-gradient(circle at 1px 1px, #FFD400 1px, transparent 0)',
           backgroundSize: '40px 40px',
         }} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative">
+          <div className="hidden lg:block absolute right-8 xl:right-20 top-1/2 -translate-y-1/2 w-44 h-64 opacity-20 pointer-events-none">
+            <img src="/NEXUS.jpeg" alt="" className="w-full h-full object-contain" />
+          </div>
           <div className="text-center max-w-3xl mx-auto">
+            <div className="flex justify-center mb-5 lg:hidden">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden ring-1 ring-[#FFD400]/40 shadow-lg shadow-black/30">
+                <img src="/NEXUS.jpeg" alt="Logo NexusLab" className="w-full h-full object-cover object-center" />
+              </div>
+            </div>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFD400]/10 border border-[#FFD400]/30 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-[#FFD400]" />
-              <span className="text-sm text-[#FFD400] font-medium">Plateforme éducative gratuite</span>
+              <span className="text-sm text-[#FFD400] font-medium">NexusLab · plateforme éducative gratuite</span>
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
               Le potentiel est partout.<br />

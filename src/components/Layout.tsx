@@ -33,9 +33,9 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-[#FFD400] rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-[#080808] font-extrabold text-lg">N</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-lg overflow-hidden ring-1 ring-[#FFD400]/40 transition-transform group-hover:scale-105">
+              <img src="/NEXUS.jpeg" alt="NexusLab" className="w-full h-full object-cover object-center" />
             </div>
             <span className="font-extrabold text-xl tracking-tight">
               Nexus<span className="text-[#FFD400]">Lab</span>
@@ -254,13 +254,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-[#FFD400] rounded-lg flex items-center justify-center">
-                <span className="text-[#080808] font-extrabold text-lg">N</span>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-20 h-20 rounded-xl overflow-hidden ring-1 ring-[#FFD400]/40">
+                <img src="/NEXUS.jpeg" alt="Logo NexusLab" className="w-full h-full object-cover object-center" />
               </div>
-              <span className="font-extrabold text-xl text-white">
-                Nexus<span className="text-[#FFD400]">Lab</span>
-              </span>
+              <div>
+                <span className="block font-extrabold text-2xl text-white">
+                  Nexus<span className="text-[#FFD400]">Lab</span>
+                </span>
+                <span className="text-xs uppercase tracking-[0.2em] text-gray-500">Opportunités éducatives</span>
+              </div>
             </div>
             <p className="text-sm text-gray-500 max-w-md">
               Le potentiel est partout. Les opportunités doivent l'être aussi. NexusLab centralise
