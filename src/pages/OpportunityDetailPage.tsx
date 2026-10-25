@@ -96,7 +96,6 @@ export function OpportunityDetailPage({ slug }: { slug: string }) {
     if (!user || !opportunity || !reportReason) return;
     const { error } = await supabase.from('reports').insert({
       opportunity_id: opportunity.id,
-      user_id: user.id,
       reason: reportReason,
       details: reportDetails || null,
     });

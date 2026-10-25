@@ -369,6 +369,83 @@ export interface HubMemberSkill {
   created_at: string;
 }
 
+export type LearningStepStatus = 'a_faire' | 'en_cours' | 'terminee';
+
+export interface LearningPath {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  objective: string | null;
+  starting_level: string | null;
+  target_level: string | null;
+  estimated_duration: string | null;
+  skills: string[];
+  is_published: boolean;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+  steps?: LearningPathStep[];
+}
+
+export interface LearningPathStep {
+  id: string;
+  path_id: string;
+  sort_order: number;
+  title: string;
+  description: string;
+  resource_url: string | null;
+  exercise: string | null;
+  created_at: string;
+  progress?: LearningPathProgress | null;
+}
+
+export interface LearningPathProgress {
+  id: string;
+  path_id: string;
+  step_id: string;
+  user_id: string;
+  status: LearningStepStatus;
+  updated_at: string;
+}
+
+export interface HubDiscussion {
+  id: string;
+  title: string;
+  club_id: string | null;
+  project_id: string | null;
+  created_by: string;
+  created_at: string;
+  updated_at: string;
+  post_count?: number;
+}
+
+export interface HubDiscussionPost {
+  id: string;
+  discussion_id: string;
+  parent_post_id: string | null;
+  body: string;
+  created_by: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export type CommunityReportEntity = 'club' | 'project' | 'gallery' | 'discussion' | 'post';
+
+export interface HubReport {
+  id: string;
+  entity_type: CommunityReportEntity;
+  entity_id: string;
+  reporter_id: string;
+  reason: string;
+  details: string | null;
+  status: ReportStatus;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export const ACTIVITY_STATUS_LABELS: Record<ActivityStatus, string> = {
   brouillon: 'Brouillon',
   publie: 'Publié',

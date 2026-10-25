@@ -77,6 +77,8 @@ export function parseRoute(path: string): { name: string; params: Record<string,
   if (segments[0] === 'profil') return { name: 'profile', params: {} };
   if (segments[0] === 'favoris') return { name: 'favorites', params: {} };
   if (segments[0] === 'videos') return { name: 'videos', params: {} };
+  if (segments[0] === 'parcours' && segments[1]) return { name: 'learning-path-detail', params: { slug: segments[1] } };
+  if (segments[0] === 'parcours') return { name: 'learning-paths', params: {} };
   if (segments[0] === 'a-propos') return { name: 'about', params: {} };
   if (segments[0] === 'contact') return { name: 'contact', params: {} };
   if (segments[0] === 'connexion') return { name: 'login', params: {} };
@@ -96,6 +98,8 @@ export function parseRoute(path: string): { name: string; params: Record<string,
     if (segments[1] === 'projets') return { name: 'hub-projects', params: {} };
     if (segments[1] === 'realisations') return { name: 'hub-gallery', params: {} };
     if (segments[1] === 'membres') return { name: 'hub-members', params: {} };
+    if (segments[1] === 'discussions' && segments[2]) return { name: 'hub-discussion-detail', params: { id: segments[2] } };
+    if (segments[1] === 'discussions') return { name: 'hub-discussions', params: {} };
     return { name: 'hub-home', params: {} };
   }
   if (segments[0] === 'admin') {

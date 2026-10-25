@@ -14,6 +14,8 @@ export function Header() {
     { label: 'Catalogue', to: '/catalogue' },
     { label: 'Pour toi', to: '/pour-toi' },
     { label: 'Hub', to: '/hub' },
+    { label: 'Clubs', to: '/hub/clubs' },
+    { label: 'Parcours', to: '/parcours' },
     { label: 'Vidéos', to: '/videos' },
     { label: 'À propos', to: '/a-propos' },
   ];
@@ -278,6 +280,8 @@ export function Footer() {
               <li><button onClick={() => navigate('/catalogue')} className="hover:text-[#FFD400] transition-colors">Catalogue</button></li>
               <li><button onClick={() => navigate('/pour-toi')} className="hover:text-[#FFD400] transition-colors">Pour toi</button></li>
               <li><button onClick={() => navigate('/videos')} className="hover:text-[#FFD400] transition-colors">Vidéos</button></li>
+              <li><button onClick={() => navigate('/parcours')} className="hover:text-[#FFD400] transition-colors">Parcours</button></li>
+              <li><button onClick={() => navigate('/hub/discussions')} className="hover:text-[#FFD400] transition-colors">Discussion</button></li>
               <li><button onClick={() => navigate('/a-propos')} className="hover:text-[#FFD400] transition-colors">À propos</button></li>
               <li><button onClick={() => navigate('/contact')} className="hover:text-[#FFD400] transition-colors">Contact</button></li>
             </ul>

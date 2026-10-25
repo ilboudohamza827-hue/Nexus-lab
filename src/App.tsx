@@ -12,12 +12,15 @@ import { FavoritesPage } from '@/pages/FavoritesPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { VideosPage } from '@/pages/VideosPage';
 import { UserDashboardPage } from '@/pages/UserDashboardPage';
+import { LearningPathsPage, LearningPathDetailPage } from '@/pages/LearningPathPages';
 import { AboutPage, ContactPage, PrivacyPage, LegalPage, NotFoundPage } from '@/pages/StaticPages';
 import { AdminDashboardPage, AdminOpportunitiesPage, AdminSubHeader } from '@/pages/admin/AdminLayout';
 import { AdminOpportunityEditPage } from '@/pages/admin/AdminOpportunityEditPage';
 import { AdminVideosPage, AdminCategoriesPage, AdminUsersPage, AdminReportsPage } from '@/pages/admin/AdminPages';
 import { HubHomePage, HubActivitiesPage, HubClubsPage, HubProjectsPage, HubGalleryPage } from '@/pages/hub/HubPages';
 import { HubActivityDetailPage, HubClubDetailPage, HubProjectDetailPage } from '@/pages/hub/HubDetailPages';
+import { HubMembersPage } from '@/pages/hub/HubMembersPage';
+import { HubDiscussionPage, HubDiscussionDetailPage } from '@/pages/hub/HubDiscussionPages';
 import { AdminHubActivitiesPage, AdminHubClubsPage, AdminHubProjectsPage, AdminHubGalleryPage } from '@/pages/hub/AdminHubPages';
 
 function AppContent() {
@@ -40,6 +43,8 @@ function AppContent() {
       case 'profile': return <ProfilePage />;
       case 'videos': return <VideosPage />;
       case 'user-dashboard': return <UserDashboardPage />;
+      case 'learning-paths': return <LearningPathsPage />;
+      case 'learning-path-detail': return <LearningPathDetailPage slug={route.params.slug} />;
       case 'about': return <AboutPage />;
       case 'contact': return <ContactPage />;
       case 'privacy': return <PrivacyPage />;
@@ -59,6 +64,9 @@ function AppContent() {
       case 'hub-projects': return <HubProjectsPage />;
       case 'hub-project-detail': return <HubProjectDetailPage slug={route.params.slug} />;
       case 'hub-gallery': return <HubGalleryPage />;
+      case 'hub-members': return <HubMembersPage />;
+      case 'hub-discussions': return <HubDiscussionPage />;
+      case 'hub-discussion-detail': return <HubDiscussionDetailPage id={route.params.id} />;
       case 'admin-hub-activities': return <AdminHubActivitiesPage />;
       case 'admin-hub-clubs': return <AdminHubClubsPage />;
       case 'admin-hub-projects': return <AdminHubProjectsPage />;
